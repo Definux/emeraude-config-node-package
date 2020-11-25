@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const merge = require('webpack-merge');
 const CompressionPlugin = require('compression-webpack-plugin');
+const WebpackBar = require('webpackbar');
 const isDevelopment = !(process.env.NODE_ENV && process.env.NODE_ENV === 'production');
 const clientInitial = require('./initials/client.js');
 const serverInitial = require('./initials/server.js');
@@ -116,6 +117,10 @@ module.exports = function(config) {
             },
             new CompressionPlugin({
                 compressionOptions: { level: 9 },
+            }),
+            new WebpackBar({
+                name: 'Client Bundle',
+                color: '#7eb62f'
             })
         ]
     });
@@ -133,7 +138,11 @@ module.exports = function(config) {
                         serverEntryFile.removeCallback();
                     });
                 }
-            }
+            },
+            new WebpackBar({
+                name: 'Server Bundle',
+                color: '#508800'
+            })
         ]
     });
     const serverBundleConfig = merge.smart(serverBundleSystemConfig, config.serverConfig);
