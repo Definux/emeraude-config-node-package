@@ -1,6 +1,6 @@
 {
   "name": "emeraude-config",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Bundles builder for Emeraude web application.",
   "main": "src/index.js",
   "repository": {

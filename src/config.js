@@ -36,12 +36,13 @@ module.exports = function(config) {
                 },
                 {
                     test: /\.js$/,
-                    loader: 'babel-loader',
-                    include: projectPath,
-                    exclude: file => (
-                        /node_modules/.test(file) &&
-                        !/\.vue\.js/.test(file)
-                    )
+                    exclude: /(node_modules|bower_components)/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    }
                 },
                 {
                     test: /\.css$/,
