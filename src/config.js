@@ -80,7 +80,10 @@ module.exports = function(config) {
                 },
                 {
                     test: /\.(png|jpg|jpeg|gif|svg)$/,
-                    loader: 'url-loader?limit=25000'
+                    loader: 'url-loader',
+                    options: {
+                        limit: 25000,
+                    },
                 }
             ]
         },
