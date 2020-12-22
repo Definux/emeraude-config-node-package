@@ -145,8 +145,9 @@ module.exports = function(config) {
             })
         ]
     });
-    const serverBundleConfig = merge.smart(serverBundleSystemConfig, config.serverConfig);
-    const clientBundleConfig = merge.smart(clientBundleSystemConfig, config.clientConfig);
+
+    const serverBundleConfig = merge(serverBundleSystemConfig, config.serverConfig);
+    const clientBundleConfig = merge(clientBundleSystemConfig, config.clientConfig);
 
     return [clientBundleConfig, serverBundleConfig];
 }
