@@ -36,13 +36,12 @@ module.exports = function(config) {
                 },
                 {
                     test: /\.js$/,
-                    exclude: /(node_modules|bower_components)/,
-                    use: {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env']
-                        }
-                    }
+                    loader: 'babel-loader',
+                    include: projectPath,
+                    exclude: file => (
+                        /node_modules/.test(file) &&
+                        !/\.vue\.js/.test(file)
+                    )
                 },
                 {
                     test: /\.css$/,
@@ -81,10 +80,7 @@ module.exports = function(config) {
                 },
                 {
                     test: /\.(png|jpg|jpeg|gif|svg)$/,
-                    loader: 'url-loader',
-                    options: {
-                        limit: 25000,
-                    },
+                    loader: 'url-loader?limit=25000'
                 }
             ]
         },
