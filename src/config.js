@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const { merge } = require('webpack-merge');
+const merge = require('webpack-merge');
 const CompressionPlugin = require('compression-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const isDevelopment = !(process.env.NODE_ENV && process.env.NODE_ENV === 'production');
@@ -150,8 +150,8 @@ module.exports = function(config) {
         ]
     });
 
-    const serverBundleConfig = merge(serverBundleSystemConfig, config.serverConfig);
-    const clientBundleConfig = merge(clientBundleSystemConfig, config.clientConfig);
+    const serverBundleConfig = merge.smart(serverBundleSystemConfig, config.serverConfig);
+    const clientBundleConfig = merge.smart(clientBundleSystemConfig, config.clientConfig);
 
     return [clientBundleConfig, serverBundleConfig];
 }
