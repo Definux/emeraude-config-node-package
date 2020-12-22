@@ -24,9 +24,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Automatic GitHub Release
-        uses: justincy/github-action-npm-release@2.0.1
-        id: publish
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
