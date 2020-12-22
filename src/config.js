@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const CompressionPlugin = require('compression-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const isDevelopment = !(process.env.NODE_ENV && process.env.NODE_ENV === 'production');
